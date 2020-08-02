@@ -38,7 +38,6 @@ public class BitmapUtils {
 
     private static final String FILE_PROVIDER_AUTHORITY = "com.example.android.fileprovider";
 
-
     /**
      * Resamples the captured photo to fit the screen for better memory usage.
      *
@@ -127,7 +126,6 @@ public class BitmapUtils {
         mediaScanIntent.setData(contentUri);
         context.sendBroadcast(mediaScanIntent);
     }
-
 
     /**
      * Helper method for saving the image.
