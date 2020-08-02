@@ -154,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // If the image capture activity was called and was successful
@@ -184,21 +183,19 @@ public class MainActivity extends AppCompatActivity {
         // Resample the saved image to fit the ImageView
         mResultsBitmap = BitmapUtils.resamplePic(this, mTempPhotoPath);
 
-        // Detect the faces
-        Emojifier.detectFaces(this, mResultsBitmap);
+        // Detect the faces and overlay the appropriate emoji
+        mResultsBitmap = Emojifier.detectFacesAndOverlayEmoji(this, mResultsBitmap);
 
-        mImageView.setImageBitmap(mResultsBitmap);
-
-        // Set the new bitmap to the ImageView
+        //set the new bitmap to the imageView
         mImageView.setImageBitmap(mResultsBitmap);
     }
-
 
     /**
      * OnClick method for the save button.
      *
      * @param view The save button.
      */
+
     public void saveMe(View view) {
         // Delete the temporary image file
         BitmapUtils.deleteImageFile(this, mTempPhotoPath);
